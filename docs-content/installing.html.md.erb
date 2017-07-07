@@ -1,28 +1,31 @@
 ---
-title: Installing and Configuring YOUR-PRODUCT-NAME
+title: Installing and Configuring the Black Duck Hub Service Broker
 owner: Partners
 ---
 
-This topic describes how to install and configure YOUR-PRODUCT-NAME.
+This topic describes how to install and configure the Black Duck Hub Service Broker.
 
-##<a id='install'></a> Install and Configure YOUR-PRODUCT-NAME
+##<a id='install'></a> Installing and Configuring the Black Duck Hub Service Broker
 
-1. Download the product file from Pivotal Network.
+1. Download the Black Duck Hub Service Broker product file from <a href='https://network.pivotal.io/'>Pivotal Network</a>.
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
 
-1. Under the **Import a Product** button, click **+** next to the version number of YOUR-PRODUCT-NAME. 
+1. Navigate to the **Ops Manager Installation Dashboard**, and click **Import a Product** to upload the product file. 
+
+1. Under **Import a Product**, click **+** next to the version number of the Black Duck Hub Service Broker. 
 This adds the tile to your staging area.
 
-1. Click the newly added **YOUR-PRODUCT-NAME** tile.
+1. Click the newly-added **Black Duck Hub Service Broker** tile.  
+    <img src='images/pcf-tile.png' alt='Black Duck Hub Service Broker tile'></img>    
 
-1. **This portion of the procedure should tell the users how to configure the newly added tile by
-walking them through the sections. Which fields should they fill out? What are the different
-checkboxes? Include relevant screenshots here.** 
+1. Select **Black Duck Hub Credentials** in the left navigation column, and update the following fields:  
+   * **Hub access protocol**
+   * **Hub network address**
+   * **Hub port**  
+   * **Hub Username and Password**
+   <img src='images/pcf-hubcreds.png'></img>
+
 
 1. Click **Save**.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install YOUR-PRODUCT-NAME tile.
-
-**If needed, include additional configuration information below. For example, maybe there are
-configuration options not required for installation but which could be useful for certain users.**
+1. Return to the **Ops Manager Installation Dashboard**, and click **Apply Changes** to install the **Black Duck Hub Service Broker** tile.

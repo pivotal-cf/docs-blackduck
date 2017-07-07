@@ -1,5 +1,5 @@
 ---
-title: Black Duck Hub (Beta)
+title: Black Duck Hub Service Broker
 owner: Partners
 ---
 <style>
@@ -13,105 +13,70 @@ owner: Partners
      }
 </style>
 
-<p class="note warning">
-<strong>WARNING! </strong>
-The Black Duck Hub Service Broker for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
-Do not use this product in a PCF production environment.
-</p>
-
-**This topic begins with a brief description of what the product tile (e.g. Black Duck Hub Service Broker for PCF) does, 
-whereas the Overview section below describes what the service itself (e.g. Hub) does. See below for an example.**
-
 This documentation describes the Black Duck Hub Service Broker for Pivotal Cloud Foundry (PCF). The Hub Service 
 Broker for PCF enables developers to secure and manage open source software in your PCF apps through the Hub console.
 
-**Note**: This description will appear under **OVERVIEW** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
-
 ## <a id='overview'></a>Overview
 
-**The overview describes the service that your product offers to PCF developers. See below for an example.**
+Black Duck is the industry leader in open source security and management.  The Black Duck Hub Service Broker 
+registers with PCF, and exposes its scan service on the Marketplace. Developers can then use Apps Manager or the 
+Cloud Foundry command line interface (cf CLI) to bind the Hub scan service to their apps.
 
-Black Duck is the industry leader in open source security and management.  The Black Duck Hub (Hub) Service Broker 
-registers with PCF and exposes its scan service on the Marketplace. Developers can then use Apps Manager or the 
-Cloud Foundry Command Line Interface (cf CLI) to bind the Hub scan service to their apps.
-
-Creating a Hub PCF service instance and binding it to an app, lets developers initiate an open source software 
-scan during the cf push process. 
-
-**Note**: This overview will appear under **OVERVIEW**, combined with the description above in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
+Creating a Hub PCF service instance and binding it to an application enables developers to initiate an open source software 
+scan during the **cf push** process. 
 
 ## <a id='features'></a>Key Features
 
-Black Duck Hub includes the following key features:
+Using the Black Duck Hub Service Broker, you can:
 
-* Publish and advertise the Black Duck Hub Service on the Marketplace
-* Provide the Hub Scan Service for any App
-* Bind Hub to any App running on PCF
-* Open Source security for your PCF apps
-* View and manage your Risk Report
-
-**Note**: This feature list will appear under **FEATURES** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
+* Publish and advertise the Black Duck Hub Service on the Pivotal Marketplace.
+* Provide the Hub Scan Service for any PCF Application.
+* Bind the Hub to any application running on PCF.
+* Automate open source scanning on any PCF application.
+* Provide security, license, and operation risk information on identified open source software.
+* Continuously monitoring of open source components in use.
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about PRODUCT-NAME.
+The following table provides version and version support information about the Black Duck Hub Service Broker.
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>vYOUR-VERSION-NUMBER</td>
+        <td>v1.0.0</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2017)</td>
+        <td>July 18, 2017</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>vYOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+        <td>Hub v3.7.x</td>
     </tr>
     <tr>
-        <td>Compatible Ops Manager version(s)</td>
-        <td>vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. v1.8.x, v1.9.x, v1.10.x)</td>
-    </tr>
-    <tr>
-        <td>Compatible Elastic Runtime version(s)</td>
-        <td>vYOUR-COMPATIBLE-ELASTIC-RUNTIME-VERSION (Ex. v1.8.x, v1.9.x, v1.10.x)</td>
-    </tr>
-    <tr>
-        <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
-    </tr>
-    <tr>
-        <td>IPsec support?</td>
-        <td>[Yes or No]</td>
+        <td>Compatible Ops Manager versions</td>
+        <td>v1.9.x, v.10.x, v.1.11.x</td>
     </tr>
 </table>
 
 ## <a id="reqs"></a>Requirements
 
-**Provide any general or specific requirements, prerequisites, or dependencies here. 
-A general requirement might be something like, "An AppDynamics account." 
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
+The Black Duck Hub Service Broker requires a licensed version of the Black Duck Hub.
 
-Black Duck Hub has the following requirements:
-
-+ Black Duck Hub account
-
-
-## <a id="limitations"></a>Limitations
-
-**List any known limitations.**
 
 ## <a id="feedback"></a>Feedback
 
-Please provide any bugs, feature requests, or questions to the 
-[Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to support@blackducksoftware.com.
+For issues, feature requests, questions, or additional information, contact the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list, 
+or send an email to [Black Duck Support](mailto:support@blackducksoftware.com).
+
+
+## <a id='sourcecode'></a>Source Code
+
+The Black Duck Hub Service Broker source code is open source, and is located at the Black Duck Software GitHub <a href="https://github.com/blackducksoftware/hub-pivotal-cf">hub-pivotal-cf</a> repository.
+
 
 ## <a id='license'></a>License
 
-**List any license information here.**
+The Black Duck Hub Service Broker code is licensed under <a href="https://github.com/blackducksoftware/hub-pivotal-cf/blob/master/LICENSE">Apache 2.0</a>.

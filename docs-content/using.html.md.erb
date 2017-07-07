@@ -1,15 +1,56 @@
 ---
-title: Using YOUR-PRODUCT-NAME
+title: Using the Black Duck Hub Service Broker
 owner: Partners
 ---
 
-This topic describes how to use YOUR-PRODUCT-NAME.
+This topic describes how to use the Black Duck Hub Service Broker.
 
-##<a id='using'></a> Using YOUR-PRODUCT-NAME
+##<a id='using'></a> Using the Black Duck Hub Service Broker
 
-**This topic should include any instructions for how to use the service or dashboard created by the tile. 
-Give procedures for how to perform the different functions offered by your product and provide screenshots where necessary.** 
+Use of the Hub Service Broker requires that you are logged in to a Cloud Foundry environment, and have selected your organization and space.
 
-**You can also use this section to include information about Architecture and Troubleshooting for known errors. 
-If you include a Troubleshooting section, follow the Symptom/Explanation format used in the 
-[Okta Troubleshooting](http://docs.pivotal.io/p-identity/okta/troubleshooting.html) topic**.
+1. If this is the first time you are pushing a particular application, you must let PCF know about it before you can start binding other
+applications and services to it. This is done by running the command:  
+<p><code>
+$ cf push *appName* --no-start
+</code></p>
+1. Verify that the black-duck-scan service displays in the **cf marketplace** using the command: 
+<p><code>
+ $ cf marketplace 
+</code></p>
+Where appName is replaced with the name of your application.
+ <img src='images/cf-marketplace.png'></img>
+1. Create a service instance of the black-duck-scan-service using the command:
+ <p><code>
+ $ cf create-service black-duck-scan standard *instanceName*
+ </code></p>
+1. Bind the service instance of the scan service to the application using the command: 
+ <p><code>
+ $ cf bind-service *appName* *instanceName* -c '{"project\_name": "*projectName*", "code\_location": "*codeLocationName*"}
+ </code></p>
+ Where:
+  * *projectName*: Name of the project displayed in the Black Duck Hub (optional). 
+  * *codeLocationName*: Hub code location alias (optional).  
+  **Note** *: The path to a file containing the JSON can be provided in the* **-c** *option in place of the inline JSON.*
+1. Edit the project's *manifest.yml* file, and add **BLACK\_DUCK\_PROJECT\_VERSION** to the *env* property of the application being scanned. This refers to the version of the project displayed in the Hub. 
+This step is optional, but strongly recommended. The following is an example of the manifest.yml file with the recommended changes:  
+<p><code>
+ applications:  
+&nbsp;&nbsp;&nbsp;\- name: spring-music  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory: 1G  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random-route: true  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path: build/libs/spring-music.jar  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLACK\_DUCK\_PROJECT\_VERSION: "1.0"  
+</code></p>  
+**Note**: The BLACK\_DUCK\_PROJECT\_VERSION value should be in single or double quotes so it is always interpreted as a string.
+1. To initiate the push with a Black Duck scan, use the command:
+<p><code>
+$ cf push -m 4G *appName*
+</p></code>  
+4GB of memory or greater is required because the Black Duck scan client reserves 4GB of heap space.  The **-m 4G** parameter will override the memory 
+attribute in the manifest.yml file, and is not necessary if the value in the file is equal to or greater than 4GB.  
+1. Navigate to Black Duck Hub to view the results.
+<img src='images/cf-results.png'></img>
+ 
+ 
