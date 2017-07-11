@@ -1,0 +1,25 @@
+---
+title: Black Duck Hub Service Broker Architecture
+owner: Partners
+---
+
+## <a id='architecture'></a>How it works
+
+<p>
+<img src="images/hubpcfarchitecture.png" alt="Black Duck Hub Service Broker">
+</p>
+
+
+1. The developer runs the *cf push* command.  
+1. The *meta-buildpack* is invoked and claims the build.  
+1. The *meta-buildpack* proceeds to invoke the appropriate programming language *buildpack*.  
+1. The language *buildpack* detects and claims the build, and produces a *droplet*.  
+1. Control passes back to the *meta-buildpack*. *Decorator* buildpacks invoke, including the *Black Duck Hub Decorator Scan buildpack*.  
+1. If the application is bound to the **black-duck-scan** service, the *droplet* contents are scanned by the Hub. 
+1. Black Duck open source metadata information displays in the Hub, such as:  
+	* security 
+	* license
+	* operational risk
+	* policy violation status
+	  
+    
