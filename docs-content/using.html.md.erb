@@ -1,39 +1,42 @@
 ---
-title: Using the Black Duck Hub Service Broker
+title: Using the Black Duck Hub Service Broker for PCF
 owner: Partners
 ---
 
-This topic describes how to use the Black Duck Hub Service Broker.
+This topic describes how to use the Black Duck Hub Service Broker for Pivotal Cloud Foundry (PCF).
 
-##<a id='using'></a> Using the Black Duck Hub Service Broker
+##<a name='using'></a> Using the Black Duck Hub Service Broker for PCF
 
-Use of the Hub Service Broker requires that you are logged in to a Cloud Foundry environment, and have selected your organization and space.
+Use of the Black Duck Hub Service Broker for PCF requires that you are logged in to a PCF environment
+and have selected your organization and space.
 
-1. If this is the first time you are pushing a particular application, you must let PCF know about it before you can start binding other
-applications and services to it. This is done by running the command:  
+1. If this is the first time you are pushing a particular app, you must let PCF know about it before you can start binding other
+apps and services to it. This is done by running the command:  
 <p><code>
-$ cf push *appName* --no-start
+$ cf push APP-NAME --no-start
 </code></p>
-1. Verify that the black-duck-scan service displays in the **cf marketplace** using the command: 
+1. Verify that the `black-duck-scan` service displays in the Marketplace using the command: 
 <p><code>
  $ cf marketplace 
 </code></p>
-Where appName is replaced with the name of your application.
+Where `APP-NAME` is replaced with the name of your app.
  <img src='images/cf-marketplace.png'></img>
 1. Create a service instance of the black-duck-scan-service using the command:
  <p><code>
- $ cf create-service black-duck-scan standard *instanceName*
+ $ cf create-service black-duck-scan standard INSTANCE-NAME
  </code></p>
-1. Bind the service instance of the scan service to the application using the command: 
+1. Bind the service instance of the scan service to the app using the command: 
  <p><code>
- $ cf bind-service *appName* *instanceName* -c '{"project\_name": "*projectName*", "code\_location": "*codeLocationName*"}
+ $ cf bind-service APP-NAME INSTANCE-NAME -c '{"project\_name": "PROJECT-NAME", "code\_location": "CODE-LOCATION-NAME"}
  </code></p>
  Where:
-  * *projectName*: Name of the project displayed in the Black Duck Hub (optional). 
-  * *codeLocationName*: Hub code location alias (optional).  
-  **Note** *: The path to a file containing the JSON can be provided in the* **-c** *option in place of the inline JSON.*
-1. Edit the project's *manifest.yml* file, and add **BLACK\_DUCK\_PROJECT\_VERSION** to the *env* property of the application being scanned. This refers to the version of the project displayed in the Hub. 
-This step is optional, but strongly recommended. The following is an example of the manifest.yml file with the recommended changes:  
+  * `PROJECT-NAME`: Name of the project displayed in the Black Duck Hub (optional) 
+  * `CODE-LOCATION-NAME`: Hub code location alias (optional)  
+   <p class="note"><strong>Note</strong>: The path to a file containing the JSON can be provided in the **-c** *option
+   in place of the inline JSON.*</p>
+1. Edit the project's `manifest.yml` file, and add `BLACK_DUCK_PROJECT_VERSION` to the `env` property of the app being scanned.
+   This refers to the version of the project displayed in the Black Duck Hub. 
+This step is optional, but strongly recommended. The following is an example of the `manifest.yml` file with the recommended changes:  
 <p><code>
  applications:  
 &nbsp;&nbsp;&nbsp;\- name: spring-music  
@@ -43,13 +46,14 @@ This step is optional, but strongly recommended. The following is an example of 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLACK\_DUCK\_PROJECT\_VERSION: "1.0"  
 </code></p>  
-**Note**: The BLACK\_DUCK\_PROJECT\_VERSION value should be in single or double quotes so it is always interpreted as a string.
+
+    <p class="note"><strong>Note</strong>: The <code>BLACK_DUCK_PROJECT_VERSION</code> value should be in single or 
+   double quotes so it is always interpreted as a string.</p>
 1. To initiate the push with a Black Duck scan, use the command:
-<p><code>
-$ cf push -m 4G *appName*
-</p></code>  
-4GB of memory or greater is required because the Black Duck scan client reserves 4GB of heap space.  The **-m 4G** parameter will override the memory 
-attribute in the manifest.yml file, and is not necessary if the value in the file is equal to or greater than 4GB.  
+   <p><code> $ cf push -m 4G APP-NAME </code>  
+Memory of 4&nbsp;GB or more is required because the Black Duck scan client reserves 4&nbsp;GB of heap space.
+The `-m 4G` parameter overrides the memory 
+attribute in the manifest.yml file and is not necessary if the value in the file is equal to or greater than 4&nbsp;GB.  
 1. Navigate to Black Duck Hub to view the results.
 <img src='images/cf-results.png'></img>
  
