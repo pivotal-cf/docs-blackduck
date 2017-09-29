@@ -23,9 +23,13 @@ This adds the tile to your staging area.
    * **Hub network address**
    * **Hub port**  
    * **Hub Username and Password**
-   <img src='images/pcf-hubcreds.png'></img>
+   * **Ignore TLS/SSL errors** (enabling this is strongly discouraged)
+   <img src='images/tile-config-1.0.1.png'></img>
 
 
 1. Click **Save**.
 
 1. Return to the **Ops Manager Installation Dashboard**, and click **Apply Changes** to install the Black Duck Hub Service Broker for PCF tile.
+
+<p class="note"><strong>Note:</strong> Verify Black Duck is last in the list of decorators. If it’s not, 
+run <code>cf update-buildpack black_duck_decorator -i 99</code> to move it to the end.</p>
