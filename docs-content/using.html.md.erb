@@ -5,9 +5,7 @@ owner: Partners
 
 This topic describes how to use the Black Duck Hub Service Broker for Pivotal Cloud Foundry (PCF).
 
-##<a name='using'></a> Using the Black Duck Hub Service Broker for PCF
-
-Use of the Black Duck Hub Service Broker for PCF requires that you are logged in to a PCF environment
+The Black Duck Hub Service Broker for PCF requires that you are logged in to a PCF environment
 and have selected your organization and space.
 
 1. If this is the first time you are pushing a particular app, you must let PCF know about it before you can start binding other
@@ -32,16 +30,17 @@ Where `APP-NAME` is replaced with the name of your app.
  Where:
   * `PROJECT-NAME`: (optional) Name of the project displayed in the Black Duck Hub.
   * `CODE-LOCATION-NAME`: (optional) Hub code location alias. If not specified, the default code location is in the format
-   *\<api_endpoint\>/\<space_id\>/\<space_name\>/\<application_name\>*.
+   `API-ENDPOINT`/`SPACE-ID`/`SPACE-NAME`/`APP-NAME`.
    <p class="note"><strong>Note</strong>: As an alternative to specifying the JSON string inline with the bind-service command, 
    the JSON can be placed in a file and specified with the **-c** option, or the project name and code location parameters can be 
    specified in the `manifest.yml` file as shown in the next step.</p>
-1. Edit the project's `manifest.yml` file, and in the the `env` property of the app being scanned, add:
-  * `BLACK_DUCK_PROJECT_VERSION`: (optional) This refers to the version of the project displayed in the Black Duck Hub.  This parameter is optional, but strongly recommended. 
+1. Edit the project `manifest.yml` file, and in the `env` property of the app being scanned, add:
+  * `BLACK_DUCK_PROJECT_VERSION`: (optional) This refers to the version of the project displayed in the Black Duck Hub.
+     Black Duck strongly recommends that you use this parameter.
   * `BLACK_DUCK_CODE_LOCATION`: (optional) Hub code location alias.
   * `BLACK_DUCK_PROJECT_NAME`: (optional) Name of the project displayed in the Black Duck Hub.
   
-The following is an example of the `manifest.yml` file with the Black Duck changes:  
+    The following is an example of the `manifest.yml` file with the Black Duck changes:  
 <p><code>
  applications:  
 &nbsp;&nbsp;&nbsp;\- name: spring-music  
@@ -54,14 +53,15 @@ The following is an example of the `manifest.yml` file with the Black Duck chang
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLACK\_DUCK\_CODE\_LOCATION: "my/cf/code/location"  
 </code></p>  
 
-<p class="note"><strong>Note</strong>: The parameter values should be in single or 
-   double quotes so it is always interpreted as a string.<br/>
-   Also, if the parameters are specified both in the bind command and yml file, the bind command takes precedence.</p>
+    <p class="note"><strong>Note</strong>: The parameter values should be in single or 
+    double quotes so it is always interpreted as a string.<br/>
+    Also, if the parameters are specified both in the bind command and yml file, the bind command takes precedence.</p>
+
 1. To initiate the push with a Black Duck scan, use the command:
    <p><code> $ cf push -m 4G APP-NAME </code>  
 Memory of 4&nbsp;GB or more is required because the Black Duck scan client reserves 4&nbsp;GB of heap space.
 The `-m 4G` parameter overrides the memory 
-attribute in the manifest.yml file and is not necessary if the value in the file is equal to or greater than 4&nbsp;GB.  
+attribute in the `manifest.yml` file and is not necessary if the value in the file is equal to or greater than 4&nbsp;GB.  
 1. Navigate to Black Duck Hub to view the results.
 <img src='images/cf-results.png'></img>
  
