@@ -1,79 +1,78 @@
 ---
-title: Black Duck Hub Service Broker for PCF
+title: Synopsys Black Duck Service Broker for PCF
 owner: Partners
 ---
 
-This documentation describes the Black Duck Hub Service Broker for Pivotal Cloud Foundry (PCF). The Black Duck Hub Service 
-Broker for PCF enables developers to secure and manage open source software in PCF apps through the Black Duck Hub console.
+This documentation describes the Synopsys Black Duck Service Broker for Pivotal Cloud Foundry (PCF). The Synopsys Black Duck Service
+Broker for PCF enables developers to secure and manage open source software in PCF apps through the Black Duck console.
 
 ## <a id='overview'></a>Overview
 
-Black Duck is the industry leader in open source security and management.  The Black Duck Hub Service Broker for PCF
-registers with PCF and exposes its scan service on the Marketplace. Developers can then use Apps Manager or the 
-Cloud Foundry command line interface (cf CLI) to bind the Black Duck Hub scan service to their apps.
+Black Duck by Synopsys is the industry leader in open source security and management.  The Synopsys Black Duck Service Broker for
+PCF exposes its scan service on the Marketplace. Developers can then use Apps Manager or the
+Cloud Foundry command line interface (cf CLI) to bind the Black Duck scan service to their apps.
 
-Creating a Black Duck Hub PCF service instance and binding it to an app enables developers to initiate an open source software 
-scan during the cf-push process. 
+Creating a Black Duck service instance and binding it to an app enables developers to initiate an open source software
+scan during the cf-push process.
 
 ## <a id='features'></a>Key Features
 
-Using the Black Duck Hub Service Broker, you can:
+Using the Synopsys Black Duck Service Broker, you can:
 
-* Import the Black Duck Hub Service Broker into your Marketplace
-* Provide the Hub Scan Service for any PCF app.
-* Bind the Black Duck Hub to any app running on PCF.
+* Import the Black Duck Service Broker into your Marketplace
+* Provide the Black Duck Scan Service for any PCF app.
+* Bind Black Duck to any app running on PCF.
 * Automate open source scanning on any PCF app.
 * Provide security, license, and operation risk information on identified open source software.
 * Continuously monitor the open source components in use.
 
 ## <a id="snapshot"></a>Product Snapshot
 
-<p class='note'><strong>Note:</strong> As of PCF v2.0, Elastic Runtime is renamed Pivotal Application Service (PAS).</p>
-
-The following table provides version and version support information about the Black Duck Hub Service Broker for PCF.
+The following table provides version and version support information about the Synopsys Black Duck Service Broker for PCF.
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>v1.0.2</td>
+        <td>v2.0.0</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>April 3, 2018</td>
+        <td>March 1, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>Hub v4.4.0 and later</td>
+        <td>Black Duck v5.0 and later</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager versions</td>
-        <td>v1.11.x, v1.12.x, and v2.0.x</td>
+        <td>2.2, 2.3, 2.4, 2.5</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Application Service version(s)</td>
-        <td>v1.11.x, v1.12.x, and v2.0.x</td>
+        <td>2.2, 2.3, 2.4, 2.5</td>
     </tr>
-</table> 
+</table>
 
 ## <a id="reqs"></a>Requirements
 
-The Black Duck Hub Service Broker for PCF requires a licensed version of the Black Duck Hub.
-[Contact our sales team to request a license.](https://www.blackducksoftware.com/partners/pivotal) 
-
+1. The Synopsys Black Duck Service Broker for PCF requires a licensed version of Black Duck.
+[Contact our sales team to request a license.](https://www.synopsys.com/software-integrity/contact-sales.html)
+1. When configuring the BOSH Director, ensure the [SSL/TLS termination point](https://docs.pivotal.io/pivotalcf/2-4/adminguide/securing-traffic.html#ssl_options)
+has a certificate signed by a CA in the trust store.
 
 ## <a id="feedback"></a>Feedback
 
-For issues, feature requests, questions, or additional information, contact the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list, 
-or send an email to [Black Duck Support](mailto:support@blackducksoftware.com).
+For issues, feature requests, questions, or additional information, contact the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list,
+or contact [Synopsys Support](https://www.synopsys.com/support.html).
 
 
 ## <a id='sourcecode'></a>Source Code
 
-The Black Duck Hub Service Broker for PCF source code is open source and is located at the Black Duck Software GitHub <a href="https://github.com/blackducksoftware/hub-cf">hub-pivotal-cf</a> repository.
+The Synopsys Black Duck Service Broker for PCF source code is open source and is located at the Black Duck Software GitHub <a href="https://github.com/blackducksoftware/hub-cf">hub-cf</a> repository.
 
 
 ## <a id='license'></a>License
 
-The Black Duck Hub Service Broker for PCF code is licensed under <a href="https://github.com/blackducksoftware/hub-cf/blob/master/LICENSE">Apache 2.0</a>.
+The Synopsys Black Duck Service Broker for PCF code is licensed under <a href="https://github.com/blackducksoftware/hub-cf/blob/master/LICENSE">Apache 2.0</a>.

@@ -1,25 +1,37 @@
 ---
-title: Black Duck Hub Service Broker for PCF Architecture
+title: Synopsys Black Duck Service Broker for PCF Architecture
 owner: Partners
 ---
 
 ## How it works
 
 <p>
-<img src="images/hubpcfarchitecture.png" alt="Black Duck Hub Service Broker">
+<img src="images/blackduckpcfarchitecture-v2.png" alt="Synopsys Black Duck Service Broker Architecture">
 </p>
 
+The Synopsys Black Duck Service Broker for PCF Architecture is based off the
+<a href="https://github.com/blackducksoftware/perceptor">Black Duck perceptor open
+source project</a>, which is an API server and event handler for consuming, storing,
+and queueing various workloads associated with responding to events that occur
+in distributed orchestration systems. When <a href="installing.html">installed
+into the PCF Ops Manager</a>,the Black Duck Service Broker behaves in the following manner:
 
-1. The developer runs the *cf push* command.  
-1. The *meta-buildpack* is invoked and claims the build.  
-1. The *meta-buildpack* proceeds to invoke the appropriate programming language *buildpack*.  
-1. The language *buildpack* detects and claims the build, and produces a *droplet*.  
-1. Control passes back to the *meta-buildpack*. *Decorator* buildpacks invoke, including the *Black Duck Hub Decorator Scan buildpack*.  
-1. If the app is bound to the **black-duck-scan** service, the *droplet* contents are scanned by the Black Duck Hub. 
-1. Black Duck open source metadata information displays in the Black Duck Hub, such as:  
-	* Security 
+1. The developer first creates the Black Duck service, and then binds it to their app.
+
+1. The developer then runs the *cf push* command.
+
+1. As the app is built and packaged into a droplet, the Black Duck Service Broker's
+droplet perceiver component picks up the new droplet creation event through the
+<a href="https://github.com/cloudfoundry/cf-java-client">*cf-java-client*</a> SDK, which
+interfaces the Cloud Controller API.
+
+1. The scanner component is polling the core perceptor component for any new droplets, and
+invokes the droplet façade to download and store the droplet in a location where the
+scanner component executes a Black Duck scan on the droplet.
+
+1. After the scan completes, open source metadata information is displayed in Black
+Duck such as:
+	* Security
 	* License
 	* Operational risk
 	* Policy violation status
-	  
-    
