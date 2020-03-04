@@ -1,15 +1,15 @@
 ---
-title: Synopsys Black Duck Service Broker for Pivotal Platform
+title: Synopsys Black Duck Service Broker for VMware Tanzu
 owner: Partners
 ---
 
-This documentation describes the Synopsys Black Duck Service Broker for Pivotal Platform. The Synopsys Black Duck Service
-Broker for Pivotal Platform enables developers to secure and manage open source software in Pivotal Platform apps through the Black Duck console.
+This documentation describes the Synopsys Black Duck Service Broker for VMware Tanzu. The Synopsys Black Duck Service
+Broker for VMware Tanzu enables developers to secure and manage open source software in VMware Tanzu apps through the Black Duck console.
 
 ## <a id='overview'></a>Overview
 
 Black Duck is the industry leader in open source security and management.  The Synopsys Black Duck Service Broker for
-Pivotal Platform exposes its scan service on the Marketplace. Developers can then use Apps Manager or the
+VMware Tanzu exposes its scan service on the Marketplace. Developers can then use Apps Manager or the
 Cloud Foundry command line interface (cf CLI) to bind the Black Duck scan service to their apps.
 
 Creating a Black Duck service instance and binding it to an app enables developers to initiate an open source software
@@ -20,15 +20,15 @@ scan during the cf-push process.
 Using the Synopsys Black Duck Service Broker, you can:
 
 * Import the Black Duck Service Broker into your Marketplace
-* Provide the Black Duck Scan Service for any Pivotal Platform app.
-* Bind Black Duck to any app running on Pivotal Platform.
-* Automate open source scanning on any Pivotal Platform app.
+* Provide the Black Duck Scan Service for any VMware Tanzu app.
+* Bind Black Duck to any app running on VMware Tanzu.
+* Automate open source scanning on any VMware Tanzu app.
 * Provide security, license, and operation risk information on identified open source software.
 * Continuously monitor the open source components in use.
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version support information about the Synopsys Black Duck Service Broker for Pivotal Platform.
+The following table provides version and version support information about the Synopsys Black Duck Service Broker for VMware Tanzu.
 
 <table class="nice">
     <th>Element</th>
@@ -50,7 +50,7 @@ The following table provides version and version support information about the S
         <td>v2.2.x, v2.3.x, and v2.4.x</td>
     </tr>
     <tr>
-        <td>Compatible Pivotal Application Service version(s)</td>
+        <td>Compatible VMware Tanzu Application Service for VMs version(s)</td>
         <td>v2.2.x, v2.3.x, and v2.4.x</td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ The following table provides version and version support information about the S
     </tr>
 </table>
 <p class="note warning"><strong> WARNING:</strong>
-Synopsys Black Duck Service Broker for Pivotal Platform v1.0.2
+Synopsys Black Duck Service Broker for VMware Tanzu v1.0.2
 and earlier require a Ubuntu Trusty stemcell.
 The end-of-life date for Ubuntu Trusty is April 2019.
 If a security vulnerability is found on this stemcell after April, it will not be fixed.</p>
@@ -67,22 +67,22 @@ If a security vulnerability is found on this stemcell after April, it will not b
 
 ## <a id="reqs"></a>Requirements
 
-1. The Synopsys Black Duck Service Broker for Pivotal Platform requires a licensed version of Black Duck.
+1. The Synopsys Black Duck Service Broker for VMware Tanzu requires a licensed version of Black Duck.
 [Contact our sales team to request a license.](https://www.synopsys.com/software-integrity/contact-sales.html)
 1. When configuring the BOSH Director, ensure the [SSL/TLS termination point](https://docs.pivotal.io/pivotalcf/2-4/adminguide/securing-traffic.html#ssl_options)
 has a certificate signed by a CA in the trust store.
 
 ## <a id="feedback"></a>Feedback
 
-For issues, feature requests, questions, or additional information, contact the [Pivotal Platform Feedback](mailto:pivotal-cf-feedback@pivotal.io) list,
+For issues, feature requests, questions, or additional information, contact the [VMware Tanzu Feedback](mailto:pivotal-cf-feedback@pivotal.io) list,
 or contact [Synopsys Support](https://www.synopsys.com/support.html).
 
 
 ## <a id='sourcecode'></a>Source Code
 
-The Synopsys Black Duck Service Broker for Pivotal Platform source code is open source and is located at the Black Duck Software GitHub <a href="https://github.com/blackducksoftware/hub-cf">hub-cf</a> repository.
+The Synopsys Black Duck Service Broker for VMware Tanzu source code is open source and is located at the Black Duck Software GitHub <a href="https://github.com/blackducksoftware/hub-cf">hub-cf</a> repository.
 
 
 ## <a id='license'></a>License
 
-The Synopsys Black Duck Service Broker for Pivotal Platform code is licensed under <a href="https://github.com/blackducksoftware/hub-cf/blob/master/LICENSE">Apache 2.0</a>.
+The Synopsys Black Duck Service Broker for VMware Tanzu code is licensed under <a href="https://github.com/blackducksoftware/hub-cf/blob/master/LICENSE">Apache 2.0</a>.
